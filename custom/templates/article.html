@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block html_lang %}{{ article.lang }}{% endblock %}
+
+{% block title %}{{ SITENAME }} - {{ article.title }}{% endblock %}
+
+{% block head %}
+{{ super() }}
+{% if article.description %}
+<meta name="description" content="{{article.description}}" />
+{% endif %}
+{% for tag in article.tags %}
+<meta name="tags" content="{{tag}}" />
+{% endfor %}
+{% endblock %}
+
+{% block content %}
+<article id="featured">
+    <h1 id="sub-heading">{{ article.title }}</h1>
+    <hr />
+    <div id="featured-content">
+        {{ article.content }}
+    </div><!-- /#featured-content -->
+    {% include 'post-info.html' %}
+</article><!-- /#featured -->
+{% endblock %}

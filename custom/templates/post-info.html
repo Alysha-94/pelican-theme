@@ -1,0 +1,31 @@
+<div class="post-info">
+    <time datetime="{{ article.date.isoformat() }}">
+        Published: {{ article.locale_date }}
+    </time>
+    {% if article.modified %}
+    <br />
+    <time datetime="{{ article.modified.isoformat() }}">
+        Modified: {{ article.locale_modified }}
+    </time>
+    {% endif %}
+    {% if article.authors %}
+    <address>
+        By {% for author in article.authors %}
+        <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+        {% endfor %}
+    </address>
+    {% endif %}
+    {% if article.category %}
+    <div>
+        In <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+    </div>
+    {% endif %}
+    {% if article.tags %}
+    <div>
+        Tags:
+        {% for tag in article.tags %}
+        <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div><!-- /.post-info -->

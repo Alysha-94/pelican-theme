@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css" />
+</head>
+<body>
+    <header id="header">
+        <h1><a href="{{ SITEURL }}/">{{ SITENAME }} </a></h1>
+        <p>{{ SITESUBTITLE }}</p>
+        <nav id="nav">
+            <div class="nav-toggle" id="js-nav-toggle" onclick="animateBar(this)">
+                <span class="bar-top"></span>
+                <span class="bar-mid"></span>
+                <span class="bar-bot"></span>
+            </div>
+            <ul class="main-nav" id="js-main-nav">
+                {% for title, link in MENUITEMS %}
+                <li><a href="{{ link }}">{{ title }}</a></li>
+                {% endfor %}
+                {% if DISPLAY_PAGES_ON_MENU -%}
+                {% for pg in pages %}
+                <li>
+                    <a href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title }}</a>
+                </li>
+                {% endfor %}
+                {% endif %}
+                {% if DISPLAY_CATEGORIES_ON_MENU -%}
+                {% for cat, null in categories %}
+                <li>
+                    <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+                </li>
+                {% endfor %}
+                {% endif %}
+            </ul>
+        </nav>
+    </header><!-- /#banner -->
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <div id="footer-links">
+            {% if LINKS %}
+            <div id="links">
+                <h3>{{ LINKS_WIDGET_NAME | default('links') }}</h3>
+                <ul>
+                    {% for name, link in LINKS %}
+                    <li><a href="{{ link }}">{{ name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div><!-- /#blogroll -->
+            {% endif %}
+            {% if SOCIAL %}
+            <div id="social">
+                <h3>{{ SOCIAL_WIDGET_NAME | default('social') }}</h3>
+                <ul>
+                    {% for name, link in SOCIAL %}
+                    <li><a href="{{ link }}">{{ name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div><!-- /#social -->
+            {% endif %}
+        </div>
+        <address id="about">
+            <p>Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.</p>
+        </address><!-- /#about -->
+    </footer><!-- /#footer-links -->
+    <script type="text/javascript" src="{{ SITEURL }}/theme/js/navbar.js"></script>
+</body>
+</html>
