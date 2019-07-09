@@ -1,2 +1,2 @@
 # Pelican Theme
-A theme I made for [Pelican](https://github.com/getpelican/pelican) static site generator.
+A [custom](http://docs.getpelican.com/en/3.6.3/themes.html) theme I made for [Pelican](https://github.com/getpelican/pelican) static site generator using the [Jinja](http://jinja.pocoo.org/) templating engine, CSS and JavaScript.
