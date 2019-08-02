@@ -143,8 +143,6 @@ a:hover {
     line-height:1.5;
     font-size:14px;
     border-radius: 20px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
 }
 #featured-content {
     margin: 2em;
@@ -159,8 +157,6 @@ a:hover {
     background-color: #f1ecd7;
     font-size: 12px;
     border-radius: 20px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
 }
 #content {
     background: #fff;
@@ -169,8 +165,6 @@ a:hover {
     width: 100%;
     padding: 0px;
     border-radius: 20px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
 }
 #sub-heading {
     color:#454849;
